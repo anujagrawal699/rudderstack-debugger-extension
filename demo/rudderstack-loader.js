@@ -1,6 +1,6 @@
-const RUDDERSTACK_WRITE_KEY = "30sRDqEbWHnbb6OfbsL0BgDHTkY";
+const RUDDERSTACK_WRITE_KEY = "WRITE_KEY";
 const RUDDERSTACK_DATAPLANE_URL =
-  "https://sggsbexmicwqne.dataplane.rudderstack.com";
+  "DATAPLANE_URL";
 
 !(function () {
   var e = (window.rudderanalytics = window.rudderanalytics || []);
