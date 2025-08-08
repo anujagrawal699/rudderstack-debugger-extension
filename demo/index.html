@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RudderStack Debugger Test Page</title>
+    <script type="module" src="rudderstack-loader.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+        margin: 0;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        text-align: center;
+        background-color: #ffffff;
+        padding: 40px 50px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+      }
+      h1 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #007bff;
+        margin-bottom: 15px;
+      }
+      p {
+        font-size: 16px;
+        color: #6c757d;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+      .button-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      button {
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 20px;
+        cursor: pointer;
+        border: none;
+        color: white;
+        border-radius: 8px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      button:nth-child(1) {
+        background-color: #007bff;
+      }
+      button:nth-child(2) {
+        background-color: #28a745;
+      }
+      button:nth-child(3) {
+        background-color: #fd7e14;
+      }
+      button:nth-child(4) {
+        background-color: #6f42c1;
+      }
+      button:nth-child(5) {
+        background-color: #20c997;
+      }
+      button:nth-child(6) {
+        background-color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>RudderStack Debugger Demo</h1>
+      <p>
+        Open DevTools (F12), find the "RudderStack" panel, then click the
+        buttons below to fire the full range of sample events.
+      </p>
+      <div class="button-group">
+        <button
+          onclick="rudderanalytics.page('Home Page', { path: '/', referrer: 'google.com' })"
+        >
+          Fire Page Call
+        </button>
+        <button
+          onclick="rudderanalytics.track('Product Clicked', { product_id: 'prod-123', price: 100, currency: 'INR' })"
+        >
+          Fire Track Call
+        </button>
+        <button
+          onclick="rudderanalytics.identify('user-18', { name: 'Anuj Agrawal', email: 'anujagrawal380@gmail.com' })"
+        >
+          Fire Identify Call
+        </button>
+
+        <button
+          onclick="rudderanalytics.group('org-789', { name: 'RudderStack', industry: 'SaaS' })"
+        >
+          Fire Group Call
+        </button>
+
+        <button onclick="rudderanalytics.alias('new-user-id-from-db')">
+          Fire Alias Call
+        </button>
+
+        <button
+          onclick="rudderanalytics.reset(); alert('RudderStack user session reset!');"
+        >
+          Fire Reset Call
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
