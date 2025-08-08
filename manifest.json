@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "RudderStack Event Debugger",
+  "version": "1.0.0",
+  "description": "Displays RudderStack analytics events in a dedicated DevTools panel for debugging.",
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "devtools_page": "devtools.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["interceptor.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
